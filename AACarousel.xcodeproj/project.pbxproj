@@ -267,7 +267,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AACarousel/Pods-AACarousel-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AACarousel/Pods-AACarousel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -276,7 +276,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AACarousel/Pods-AACarousel-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AACarousel/Pods-AACarousel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7CEBBD4544803D027D1F55DA /* [CP] Check Pods Manifest.lock */ = {
