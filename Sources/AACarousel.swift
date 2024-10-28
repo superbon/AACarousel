@@ -33,7 +33,7 @@ public class AACarousel: UIView,UIScrollViewDelegate {
     private var scrollView:UIScrollView!
     private var describedLabel:UILabel!
     private var layerView:UIView!
-    private var pageControl:UIPageControl!
+    private var pageControl = UIPageControl(frame: .zero)
     private var beforeImageView:UIImageView!
     private var currentImageView:UIImageView!
     private var afterImageView:UIImageView!
@@ -42,12 +42,11 @@ public class AACarousel: UIView,UIScrollViewDelegate {
     private var timer:Timer?
     private var defaultImg:String?
     private var timerInterval:Double?
-    private var indicatorPosition:pageControlPosition = pageControlPosition.bottom
+    private var indicatorPosition:pageControlPosition = pageControlPosition.bottomLeft
     private var carouselMode:displayModel = displayModel.full
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        
         initWithScrollView()
         initWithImageView()
         initWithLayerView()
@@ -60,20 +59,16 @@ public class AACarousel: UIView,UIScrollViewDelegate {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        
         setScrollViewFrame()
         setImageViewFrame()
         setLayerViewFrame()
         setLabelFrame()
-        setPageControlFrame()
-        
-        
+//        setPageControlFrame()
     }
     
     //MARK:- Interface Builder(Xib,StoryBoard)
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
         initWithScrollView()
         initWithImageView()
         initWithLayerView()
@@ -122,12 +117,16 @@ public class AACarousel: UIView,UIScrollViewDelegate {
     }
     
     fileprivate func initWithPageControl() {
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
+        let leading = NSLayoutConstraint(item: pageControl, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: pageControl, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: pageControl, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+
+        self.insertSubview(pageControl, at: 0)
+        self.bringSubviewToFront(pageControl)
+        self.addConstraints([leading, trailing, bottom])
         
-        pageControl = UIPageControl()
-        pageControl.hidesForSinglePage = true
-        pageControl.currentPageIndicatorTintColor = UIColor.white
-        pageControl.pageIndicatorTintColor = UIColor.gray
-        addSubview(pageControl)
     }
     
     fileprivate func initWithImageView() {
