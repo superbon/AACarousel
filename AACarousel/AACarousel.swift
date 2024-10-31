@@ -398,10 +398,8 @@ public class AACarousel: UIView,UIScrollViewDelegate {
     
     //MARK:- set auto scroll
     fileprivate func startAutoScroll() {
-        if timer != nil {
             timer = Timer()
             timer = Timer.scheduledTimer(timeInterval: timerInterval ?? 5, target: self, selector: #selector(autoScrollToNextImageView), userInfo: nil, repeats: true)
-        }
     }
     
     fileprivate func stopAutoScroll() {
