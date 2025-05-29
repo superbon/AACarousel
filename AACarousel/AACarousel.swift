@@ -134,9 +134,9 @@ public class AACarousel: UIView,UIScrollViewDelegate {
         beforeImageView = UIImageView()
         currentImageView = UIImageView()
         afterImageView = UIImageView()
-        beforeImageView.contentMode = UIView.ContentMode.scaleToFill
-        currentImageView.contentMode = UIView.ContentMode.scaleToFill
-        afterImageView.contentMode = UIView.ContentMode.scaleToFill
+        beforeImageView.contentMode = UIView.ContentMode.scaleAspectFill
+        currentImageView.contentMode = UIView.ContentMode.scaleAspectFill
+        afterImageView.contentMode = UIView.ContentMode.scaleAspectFill
         beforeImageView.clipsToBounds = true
         currentImageView.clipsToBounds = true
         afterImageView.clipsToBounds = true
